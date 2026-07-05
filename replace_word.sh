@@ -1,5 +1,9 @@
 #!/bin/bash
 
-sed '1,4!{/welcome/s/give/learning/g}' input.txt > output.txt
+FILE="sample.txt"
+
+sed -i '5,${
+/welcome/s/give/learning/g
+}' "$FILE"
 
 echo "Replacement completed."

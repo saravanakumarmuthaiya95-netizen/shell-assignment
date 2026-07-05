@@ -2,12 +2,12 @@
 
 URL="https://guvi.in"
 
-STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" $URL)
+STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
 
 echo "HTTP Status Code: $STATUS_CODE"
 
-if [ "$STATUS_CODE" -ge 200 ] && [ "$STATUS_CODE" -lt 300 ]; then
-    echo "Success: Website is reachable."
+if [ "$STATUS_CODE" -eq 200 ]; then
+    echo "Website is available."
 else
-    echo "Failure: Website returned an error."
+    echo "Website is unavailable."
 fi
